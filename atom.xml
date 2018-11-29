@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://jiangjinjin1.github.io/"/>
-  <updated>2018-11-29T05:45:25.364Z</updated>
+  <updated>2018-11-29T05:56:24.721Z</updated>
   <id>https://jiangjinjin1.github.io/</id>
   
   <author>
@@ -15,6 +15,47 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>vue面试题</title>
+    <link href="https://jiangjinjin1.github.io/2018/11/29/vue%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    <id>https://jiangjinjin1.github.io/2018/11/29/vue面试题/</id>
+    <published>2018-11-29T05:55:24.000Z</published>
+    <updated>2018-11-29T05:56:24.721Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+      <category term="面试题类目" scheme="https://jiangjinjin1.github.io/categories/%E9%9D%A2%E8%AF%95%E9%A2%98%E7%B1%BB%E7%9B%AE/"/>
+    
+    
+      <category term="面试题类目" scheme="https://jiangjinjin1.github.io/tags/%E9%9D%A2%E8%AF%95%E9%A2%98%E7%B1%BB%E7%9B%AE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>react面试题</title>
+    <link href="https://jiangjinjin1.github.io/2018/11/29/react%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    <id>https://jiangjinjin1.github.io/2018/11/29/react面试题/</id>
+    <published>2018-11-29T05:55:00.000Z</published>
+    <updated>2018-11-29T06:30:49.251Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="1、dispatch触发action，react视图更新过程"><a href="#1、dispatch触发action，react视图更新过程" class="headerlink" title="1、dispatch触发action，react视图更新过程"></a>1、dispatch触发action，react视图更新过程</h2><ul><li><p>答: 当我们dispatch 一个 action 的时候， 调用的其实是 store.dispatch，这个都没问题，store.dispatch 会去跑一遍所有注册在 <code>createStore</code> 中的 reducer， 找到对应的 type 更新数据，返回一个新的 state。</p> <a id="more"></a><p>   而我们的组件想拿到 store 的数据必须通过 <code>connect(mapStateToProps, mapDispatchToProps)(App)</code> 像这样，react-redux 中的 Connect 组件会在 <code>componengDidMount</code> 的时候去 调用 一个 <code>trySubscribe</code> 的方法，其内部调用 <code>store.subscrib</code>e 去订阅一个 handleChange 的方法。</p><p>   所以当你 dispatch action 的时候，就会触发 Connect 组件中的方法， Connect 组件中也维护了一个叫做 <code>storeState</code> 的 state，每次拿到新的 sotre 就去调用 setState， 触发 render 函数， render 函数会根据你 connect 中传入的 mapStateToProps， mapDispatchToProps，包括可选参数 mergeProps， 去做一个 props 的合并动作， 最终在 Connect 组件内部 return 出来一个 <code>createElement(WrappedComponent,this.mergedProps)</code> 这样的东西，而 createElement 第二个参数就是你组件的 props， 那么每次 props 变了，就会驱动视图的更新。这就是 Redux 其中的中做原理。</p></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;1、dispatch触发action，react视图更新过程&quot;&gt;&lt;a href=&quot;#1、dispatch触发action，react视图更新过程&quot; class=&quot;headerlink&quot; title=&quot;1、dispatch触发action，react视图更新过程&quot;&gt;&lt;/a&gt;1、dispatch触发action，react视图更新过程&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;答: 当我们dispatch 一个 action 的时候， 调用的其实是 store.dispatch，这个都没问题，store.dispatch 会去跑一遍所有注册在 &lt;code&gt;createStore&lt;/code&gt; 中的 reducer， 找到对应的 type 更新数据，返回一个新的 state。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="面试题类目" scheme="https://jiangjinjin1.github.io/categories/%E9%9D%A2%E8%AF%95%E9%A2%98%E7%B1%BB%E7%9B%AE/"/>
+    
+    
+      <category term="面试题类目" scheme="https://jiangjinjin1.github.io/tags/%E9%9D%A2%E8%AF%95%E9%A2%98%E7%B1%BB%E7%9B%AE/"/>
+    
+  </entry>
   
   <entry>
     <title>mac中使用生成项目结构图tree</title>
