@@ -312,6 +312,213 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://jiangjinjin1.github.io/2019/01/04/IOC设计理念/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="fighting of erha">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://thirdwx.qlogo.cn/mmopen/vi_32/6h85RMsib6oGMKz0eibALsD1ricmicj6gUbUWAOs0C6Ynhf7Na6IBLyoWpHxTnHAZoAdznwicTf1Xaa61xdnEjV1QTg/132">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="fighting of erha">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/01/04/IOC设计理念/" itemprop="url">IOC设计理念</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-04T15:26:45+08:00">
+                2019-01-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/设计模式/" itemprop="url" rel="index">
+                    <span itemprop="name">设计模式</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/01/04/IOC设计理念/" class="leancloud_visitors" data-flag-title="IOC设计理念">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+                 <span>℃</span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  641
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  2
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="什么是-IoC"><a href="#什么是-IoC" class="headerlink" title="什么是 IoC"></a>什么是 IoC</h1><p><code>IoC</code> 的全称叫做 <code>Inversion of Control</code>，可翻译为为「<strong>控制反转</strong>」或「<strong>依赖倒置</strong>」，它主要包含了三个准则：</p>
+<pre><code>1、高层次的模块不应该依赖于低层次的模块，它们都应该依赖于抽象
+2、抽象不应该依赖于具体实现，具体实现应该依赖于抽象
+3、面向接口编程 而不要面向实现编程
+</code></pre><h2 id="依赖注入"><a href="#依赖注入" class="headerlink" title="依赖注入"></a>依赖注入</h2><hr>
+<p>所谓的依赖注入，简单来说就是把高层模块所依赖的模块通过传参的方式把依赖「注入」到模块内部，上面的代码可以通过依赖注入的方式改造成如下方式：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// app.js</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">App</span> </span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span>(options) &#123;</span><br><span class="line">        <span class="keyword">this</span>.options = options;</span><br><span class="line">        <span class="keyword">this</span>.router = options.router;</span><br><span class="line">        <span class="keyword">this</span>.track = options.track;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">this</span>.init();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    init() &#123;</span><br><span class="line">        <span class="built_in">window</span>.addEventListener(<span class="string">'DOMContentLoaded'</span>, () =&gt; &#123;</span><br><span class="line">            <span class="keyword">this</span>.router.to(<span class="string">'home'</span>);</span><br><span class="line">            <span class="keyword">this</span>.track.tracking();</span><br><span class="line">            <span class="keyword">this</span>.options.onReady();</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// index.js</span></span><br><span class="line"><span class="keyword">import</span> App <span class="keyword">from</span> <span class="string">'path/to/App'</span>;</span><br><span class="line"><span class="keyword">import</span> Router <span class="keyword">from</span> <span class="string">'./modules/Router'</span>;</span><br><span class="line"><span class="keyword">import</span> Track <span class="keyword">from</span> <span class="string">'./modules/Track'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> App(&#123;</span><br><span class="line">    router: <span class="keyword">new</span> Router(),</span><br><span class="line">    track: <span class="keyword">new</span> Track(),</span><br><span class="line">    onReady() &#123;</span><br><span class="line">        <span class="comment">// do something here...</span></span><br><span class="line">    &#125;,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>但是如果产品说再加个分享功能，肯定要再加个<code>this.share = options.share</code>,这明显不是我们所期望的。</p>
+<p>看下面的代码:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">App</span> </span>&#123;</span><br><span class="line">    <span class="keyword">static</span> modules = []</span><br><span class="line">    <span class="keyword">constructor</span>(options) &#123;</span><br><span class="line">        <span class="keyword">this</span>.options = options;</span><br><span class="line">        <span class="keyword">this</span>.init();</span><br><span class="line">    &#125;</span><br><span class="line">    init() &#123;</span><br><span class="line">        <span class="built_in">window</span>.addEventListener(<span class="string">'DOMContentLoaded'</span>, () =&gt; &#123;</span><br><span class="line">            <span class="keyword">this</span>.initModules();</span><br><span class="line">            <span class="keyword">this</span>.options.onReady(<span class="keyword">this</span>);</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">static</span> use(<span class="built_in">module</span>) &#123;</span><br><span class="line">        <span class="built_in">Array</span>.isArray(<span class="built_in">module</span>) ? <span class="built_in">module</span>.map(<span class="function"><span class="params">item</span> =&gt;</span> App.use(item)) : App.modules.push(<span class="built_in">module</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    initModules() &#123;</span><br><span class="line">        App.modules.map(<span class="function"><span class="params">module</span> =&gt;</span> <span class="built_in">module</span>.init &amp;&amp; <span class="keyword">typeof</span> <span class="built_in">module</span>.init == <span class="string">'function'</span> &amp;&amp; <span class="built_in">module</span>.init(<span class="keyword">this</span>));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>经过改造后 <code>App</code> 内已经没有「具体实现」了，看不到任何业务代码了，那么如何使用 <code>App</code> 来管理我们的依赖呢：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// modules/Router.js</span></span><br><span class="line"><span class="keyword">import</span> Router <span class="keyword">from</span> <span class="string">'path/to/Router'</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">    init(app) &#123;</span><br><span class="line">        app.router = <span class="keyword">new</span> Router(app.options.router);</span><br><span class="line">        app.router.to(<span class="string">'home'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// modules/Track.js</span></span><br><span class="line"><span class="keyword">import</span> Track <span class="keyword">from</span> <span class="string">'path/to/Track'</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">    init(app) &#123;</span><br><span class="line">        app.track = <span class="keyword">new</span> Track(app.options.track);</span><br><span class="line">        app.track.tracking();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// index.js</span></span><br><span class="line"><span class="keyword">import</span> App <span class="keyword">from</span> <span class="string">'path/to/App'</span>;</span><br><span class="line"><span class="keyword">import</span> Router <span class="keyword">from</span> <span class="string">'./modules/Router'</span>;</span><br><span class="line"><span class="keyword">import</span> Track <span class="keyword">from</span> <span class="string">'./modules/Track'</span>;</span><br><span class="line"></span><br><span class="line">App.use([Router, Track]);</span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> App(&#123;</span><br><span class="line">    router: &#123;</span><br><span class="line">        mode: <span class="string">'history'</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">    track: &#123;</span><br><span class="line">        <span class="comment">// ...</span></span><br><span class="line">    &#125;,</span><br><span class="line">    onReady(app) &#123;</span><br><span class="line">        <span class="comment">// app.options ...</span></span><br><span class="line">    &#125;,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>这样通过注入到modules里初始化，将 <code>App</code> 的this传入modules注入的方法中，实现绑定到 <code>App</code> 的对象上</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><hr>
+<p><code>App</code> 模块此时应该称之为「容器」比较合适了，跟业务已经没有任何关系了，它仅仅只是提供了一些方法来辅助管理注入的依赖和控制模块如何执行。<br>控制反转（<code>Inversion of Control</code>）是一种「思想」，依赖注入（<code>Dependency Injection</code>）则是这一思想的一种具体「实现方式」，而这里的 <code>App</code> 则是辅助依赖管理的一个「容器」。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://jiangjinjin1.github.io/2018/12/12/常用的css-reset/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -2139,7 +2346,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2150,7 +2357,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -2161,7 +2368,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -2267,7 +2474,7 @@
       <div class="footer-inner">
         <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
-<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -2282,7 +2489,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">8.9k</span>
+    <span title="Site words total count">9.5k</span>
   
 -->
 </div>
@@ -2312,7 +2519,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共8.9k字</span>
+  <span class="post-count">博客全站共9.5k字</span>
 </div>
 
         
