@@ -106,7 +106,7 @@
 <meta property="og:site_name" content="fighting of erha">
 <meta property="og:description" content="一、基础javascript篇1、类的创建和继承（1）类的创建（es5）：new一个function，在这个function的prototype里面增加属性和方法。 下面来创建一个Animal类： 12345678910111213// 定义一个动物类function Animal (name) &amp;#123;  // 属性  this.name = name || &apos;Animal&apos;;  // 实例">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-01-07T07:10:08.046Z">
+<meta property="og:updated_time" content="2019-01-07T07:29:35.863Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JS知识面试题">
 <meta name="twitter:description" content="一、基础javascript篇1、类的创建和继承（1）类的创建（es5）：new一个function，在这个function的prototype里面增加属性和方法。 下面来创建一个Animal类： 12345678910111213// 定义一个动物类function Animal (name) &amp;#123;  // 属性  this.name = name || &apos;Animal&apos;;  // 实例">
@@ -464,8 +464,13 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Cat</span>(<span class="params">name</span>)</span>&#123;</span><br><span class="line">  Animal.call(<span class="keyword">this</span>);</span><br><span class="line">  <span class="keyword">this</span>.name = name || <span class="string">'Tom'</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// Test Code</span></span><br><span class="line"><span class="keyword">var</span> cat = <span class="keyword">new</span> Cat();</span><br><span class="line"><span class="built_in">console</span>.log(cat.name);</span><br><span class="line"><span class="built_in">console</span>.log(cat.sleep());</span><br><span class="line"><span class="built_in">console</span>.log(cat <span class="keyword">instanceof</span> Animal); <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(cat <span class="keyword">instanceof</span> Cat); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li>特点：可以实现多继承</li>
-<li><p>缺点：只能继承父类实例的属性和方法，不能继承原型上的属性和方法。</p>
-<p>（4）实例继承和拷贝继承<br><br>实例继承：为父类实例添加新特性，作为子类实例返回<br>拷贝继承：拷贝父类元素上的属性和方法<br>上述两个实用性不强，不一一举例。<br>（5）组合继承：相当于构造继承和原型链继承的组合体。通过调用父类构造，继承父类的属性并保留传参的优点，然后通过将父类实例作为子类原型，实现函数复用</p>
+<li>缺点：只能继承父类实例的属性和方法，不能继承原型上的属性和方法。</li>
+</ul>
+<p>（4）实例继承和拷贝继承<br></p>
+<ul>
+<li>实例继承：为父类实例添加新特性，作为子类实例返回</li>
+<li>拷贝继承：拷贝父类元素上的属性和方法</li>
+<li><p>上述两个实用性不强，不一一举例。<br>（5）组合继承：相当于构造继承和原型链继承的组合体。通过调用父类构造，继承父类的属性并保留传参的优点，然后通过将父类实例作为子类原型，实现函数复用</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Cat</span>(<span class="params">name</span>)</span>&#123;</span><br><span class="line">  Animal.call(<span class="keyword">this</span>);</span><br><span class="line">  <span class="keyword">this</span>.name = name || <span class="string">'Tom'</span>;</span><br><span class="line">&#125;</span><br><span class="line">Cat.prototype = <span class="keyword">new</span> Animal();</span><br><span class="line">Cat.prototype.constructor = Cat;</span><br><span class="line"><span class="comment">// Test Code</span></span><br><span class="line"><span class="keyword">var</span> cat = <span class="keyword">new</span> Cat();</span><br><span class="line"><span class="built_in">console</span>.log(cat.name);</span><br><span class="line"><span class="built_in">console</span>.log(cat.sleep());</span><br><span class="line"><span class="built_in">console</span>.log(cat <span class="keyword">instanceof</span> Animal); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(cat <span class="keyword">instanceof</span> Cat); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>特点：可以继承实例属性/方法，也可以继承原型属性/方法</p>
