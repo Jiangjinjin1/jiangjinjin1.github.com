@@ -107,7 +107,7 @@
 <meta property="og:description" content="一、基础javascript篇1、类的创建和继承（1）类的创建（es5）：new一个function，在这个function的prototype里面增加属性和方法。 下面来创建一个Animal类： 12345678910111213// 定义一个动物类function Animal (name) &amp;#123;  // 属性  this.name = name || &apos;Animal&apos;;  // 实例">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://jiangjinjin1.github.io/images/jsImg_1.png">
-<meta property="og:updated_time" content="2019-01-07T09:24:49.043Z">
+<meta property="og:updated_time" content="2019-01-08T06:40:53.366Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JS知识面试题">
 <meta name="twitter:description" content="一、基础javascript篇1、类的创建和继承（1）类的创建（es5）：new一个function，在这个function的prototype里面增加属性和方法。 下面来创建一个Animal类： 12345678910111213// 定义一个动物类function Animal (name) &amp;#123;  // 属性  this.name = name || &apos;Animal&apos;;  // 实例">
@@ -413,7 +413,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  2.9k
+                  4.7k
                 </span>
               
 
@@ -429,7 +429,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  12
+                  19
                 </span>
               
             </div>
@@ -542,6 +542,130 @@
 <p>我们发现Function的原型也是Function。<br></p>
 <p>我们用图可以来明确这个关系：</p>
 <p><img src="/images/jsImg_1.png"></p>
+<ul>
+<li>此处借图于[<a href="https://juejin.im/post/5b44a485e51d4519945fb6b7" target="_blank" rel="noopener">https://juejin.im/post/5b44a485e51d4519945fb6b7</a>]</li>
+</ul>
+<h2 id="5、观察者或订阅模式的简单实现"><a href="#5、观察者或订阅模式的简单实现" class="headerlink" title="5、观察者或订阅模式的简单实现"></a>5、观察者或订阅模式的简单实现</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Events</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"><span class="keyword">this</span>.on=<span class="function"><span class="keyword">function</span>(<span class="params">eventName,callBack</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(!<span class="keyword">this</span>.handles)&#123;</span><br><span class="line">    <span class="keyword">this</span>.handles=&#123;&#125;;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span>(!<span class="keyword">this</span>.handles[eventName])&#123;</span><br><span class="line">    <span class="keyword">this</span>.handles[eventName]=[];</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">this</span>.handles[eventName].push(callBack);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">this</span>.emit=<span class="function"><span class="keyword">function</span>(<span class="params">eventName,obj</span>)</span>&#123;</span><br><span class="line">   <span class="keyword">if</span>(<span class="keyword">this</span>.handles[eventName])&#123;</span><br><span class="line">     <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;o&lt;<span class="keyword">this</span>.handles[eventName].length;i++)&#123;</span><br><span class="line">       <span class="keyword">this</span>.handles[eventName][i](obj);</span><br><span class="line">     &#125;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这样我们就定义了Events，现在我们可以开始来调用：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> events=<span class="keyword">new</span> Events();</span><br><span class="line">events.on(<span class="string">'say'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">name</span>)</span>&#123;</span><br><span class="line">   <span class="built_in">console</span>.log(<span class="string">'Hello'</span>,nama)</span><br><span class="line">&#125;);</span><br><span class="line">events.emit(<span class="string">'say'</span>,<span class="string">'Jony yu'</span>);</span><br><span class="line"><span class="comment">//结果就是通过emit调用之后，输出了Jony yu</span></span><br></pre></td></tr></table></figure>
+<h1 id="三、http、html和浏览器篇"><a href="#三、http、html和浏览器篇" class="headerlink" title="三、http、html和浏览器篇"></a>三、http、html和浏览器篇</h1><h2 id="1、http和https"><a href="#1、http和https" class="headerlink" title="1、http和https"></a>1、http和https</h2><p>https的SSL加密是在传输层实现的。</p>
+<p><strong>(1)http和https的基本概念</strong></p>
+<ul>
+<li><p>http: 超文本传输协议，是互联网上应用最为广泛的一种网络协议，是一个客户端和服务器端请求和应答的标准（TCP），用于从WWW服务器传输超文本到本地浏览器的传输协议，它可以使浏览器更加高效，使网络传输减少。</p>
+</li>
+<li><p>https: 是以安全为目标的HTTP通道，简单讲是HTTP的安全版，即HTTP下加入SSL层，HTTPS的安全基础是SSL，因此加密的详细内容就需要SSL。</p>
+</li>
+<li><p>https协议的主要作用是：建立一个信息安全通道，来确保数组的传输，确保网站的真实性。</p>
+</li>
+</ul>
+<p><strong>(2)http和https的区别？</strong></p>
+<ul>
+<li><p>http传输的数据都是未加密的，也就是明文的，网景公司设置了SSL协议来对http协议传输的数据进行加密处理，简单来说https协议是由http和ssl协议构建的可进行加密传输和身份认证的网络协议，比http协议的安全性更高。<br>主要的区别如下：</p>
+</li>
+<li><p>Https协议需要ca证书，费用较高。</p>
+</li>
+<li><p>http是超文本传输协议，信息是明文传输，https则是具有安全性的ssl加密传输协议。</p>
+</li>
+<li><p>使用不同的链接方式，端口也不同，一般而言，http协议的端口为80，https的端口为443</p>
+</li>
+<li><p>http的连接很简单，是无状态的；HTTPS协议是由SSL+HTTP协议构建的可进行加密传输、身份认证的网络协议，比http协议安全。</p>
+</li>
+</ul>
+<p><strong>(3)https协议的工作原理</strong></p>
+<p>客户端在使用HTTPS方式与Web服务器通信时有以下几个步骤。</p>
+<ul>
+<li><p>客户使用https url访问服务器，则要求web 服务器建立ssl链接。</p>
+</li>
+<li><p>web服务器接收到客户端的请求之后，会将网站的证书（证书中包含了公钥），返回或者说传输给客户端。</p>
+</li>
+<li><p>客户端和web服务器端开始协商SSL链接的安全等级，也就是加密等级。</p>
+</li>
+<li><p>客户端浏览器通过双方协商一致的安全等级，建立会话密钥，然后通过网站的公钥来加密会话密钥，并传送给网站。</p>
+</li>
+<li><p>web服务器通过自己的私钥解密出会话密钥。</p>
+</li>
+<li><p>web服务器通过会话密钥加密与客户端之间的通信。</p>
+</li>
+</ul>
+<p><strong>(4)https协议的优点</strong></p>
+<ul>
+<li><p>使用HTTPS协议可认证用户和服务器，确保数据发送到正确的客户机和服务器；</p>
+</li>
+<li><p>HTTPS协议是由SSL+HTTP协议构建的可进行加密传输、身份认证的网络协议，要比http协议安全，可防止数据在传输过程中不被窃取、改变，确保数据的完整性。</p>
+</li>
+<li><p>HTTPS是现行架构下最安全的解决方案，虽然不是绝对安全，但它大幅增加了中间人攻击的成本。</p>
+</li>
+<li><p>谷歌曾在2014年8月份调整搜索引擎算法，并称“比起同等HTTP网站，采用HTTPS加密的网站在搜索结果中的排名将会更高”。</p>
+</li>
+</ul>
+<p><strong>(5)https协议的缺点</strong></p>
+<ul>
+<li><p>https握手阶段比较费时，会使页面加载时间延长50%，增加10%~20%的耗电。</p>
+</li>
+<li><p>https缓存不如http高效，会增加数据开销。</p>
+</li>
+<li><p>SSL证书也需要钱，功能越强大的证书费用越高。</p>
+</li>
+<li><p>SSL证书需要绑定IP，不能再同一个ip上绑定多个域名，ipv4资源支持不了这种消耗。</p>
+</li>
+</ul>
+<h2 id="2、http2-0"><a href="#2、http2-0" class="headerlink" title="2、http2.0"></a>2、http2.0</h2><p>首先补充一下，http和https的区别，相比于http,https是基于ssl加密的http协议<br>简要概括：http2.0是基于1999年发布的http1.0之后的首次更新。</p>
+<ul>
+<li>提升访问速度（可以对于，请求资源所需时间更少，访问速度更快，相比http1.0）</li>
+<li>允许多路复用：多路复用允许同时通过单一的HTTP/2连接发送多重请求-响应信息。改善了：在http1.1中，浏览器客户端在同一时间，针对同一域名下的请求有一定数量限制（连接数量），超过限制会被阻塞。</li>
+<li>二进制分帧：HTTP2.0会将所有的传输信息分割为更小的信息或者帧，并对他们进行二进制编码</li>
+<li>首部压缩</li>
+<li>服务器端推送</li>
+</ul>
+<h2 id="3、一个图片url访问后直接下载怎样实现？"><a href="#3、一个图片url访问后直接下载怎样实现？" class="headerlink" title="3、一个图片url访问后直接下载怎样实现？"></a>3、一个图片url访问后直接下载怎样实现？</h2><p>请求的返回头里面，用于浏览器解析的重要参数就是OSS的API文档里面的返回http头，决定用户下载行为的参数。</p>
+<p>下载的情况下：</p>
+<figure class="highlight http"><figcaption><span>request</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">1. x-oss-object-type:</span><br><span class="line">       <span class="attribute">Normal</span></span><br><span class="line">2. x-oss-request-id:</span><br><span class="line">       <span class="attribute">598D5ED34F29D01FE2925F41</span></span><br><span class="line">3. x-oss-storage-class:</span><br><span class="line">       <span class="attribute">Standard</span></span><br></pre></td></tr></table></figure>
+<h2 id="4、iframe是什么？有什么缺点？"><a href="#4、iframe是什么？有什么缺点？" class="headerlink" title="4、iframe是什么？有什么缺点？"></a>4、iframe是什么？有什么缺点？</h2><p>定义：iframe元素会创建包含另一个文档的内联框架<br>提示：可以将提示文字放在之间，来提示某些不支持iframe的浏览器</p>
+<p>缺点：</p>
+<ul>
+<li><p>会阻塞主页面的onload事件</p>
+</li>
+<li><p>搜索引擎无法解读这种页面，不利于SEO（search engine optimization） <strong>搜索引擎优化</strong></p>
+</li>
+<li><p>iframe和主页面共享连接池，而浏览器对相同区域有限制所以会影响性能。</p>
+</li>
+</ul>
+<h2 id="5、Doctype作用-严格模式与混杂模式如何区分？它们有何意义"><a href="#5、Doctype作用-严格模式与混杂模式如何区分？它们有何意义" class="headerlink" title="5、Doctype作用? 严格模式与混杂模式如何区分？它们有何意义?"></a>5、Doctype作用? 严格模式与混杂模式如何区分？它们有何意义?</h2><p>Doctype声明于文档最前面，告诉浏览器以何种方式来渲染页面，这里有两种模式，严格模式和混杂模式。</p>
+<ul>
+<li><p>严格模式的排版和 JS 运作模式是 以该浏览器支持的最高标准运行。</p>
+</li>
+<li><p>混杂模式，向后兼容，模拟老式浏览器，防止浏览器无法兼容页面。</p>
+</li>
+</ul>
+<h2 id="6、Cookie如何防范XSS攻击"><a href="#6、Cookie如何防范XSS攻击" class="headerlink" title="6、Cookie如何防范XSS攻击"></a>6、Cookie如何防范XSS攻击</h2><p>XSS（跨站脚本攻击）是指攻击者在返回的HTML中嵌入javascript脚本，为了减轻这些攻击，需要在HTTP头部配上，set-cookie：</p>
+<ul>
+<li><p>httponly-这个属性可以防止XSS,它会禁止javascript脚本来访问cookie。</p>
+</li>
+<li><p>secure - 这个属性告诉浏览器仅在请求为https的时候发送cookie。</p>
+</li>
+</ul>
+<p>结果应该是这样的：Set-Cookie=…..</p>
+<h2 id="7、viewport和移动端布局"><a href="#7、viewport和移动端布局" class="headerlink" title="7、viewport和移动端布局"></a>7、viewport和移动端布局</h2><p>看了小姐姐的文章挺好的：</p>
+<p><a href="https://github.com/forthealllight/blog/issues/13" target="_blank" rel="noopener">响应式布局的常用解决方案对比(媒体查询、百分比、rem和vw/vh）</a></p>
+<h1 id="四、CSS相关"><a href="#四、CSS相关" class="headerlink" title="四、CSS相关"></a>四、CSS相关</h1><h2 id="1、画一条0-5px的线"><a href="#1、画一条0-5px的线" class="headerlink" title="1、画一条0.5px的线"></a>1、画一条0.5px的线</h2><ul>
+<li><p>采用meta viewport的方式</p>
+</li>
+<li><p>采用 border-image的方式</p>
+</li>
+<li><p>采用transform: scale()的方式</p>
+</li>
+</ul>
+<h2 id="2、link标签和import标签的区别"><a href="#2、link标签和import标签的区别" class="headerlink" title="2、link标签和import标签的区别"></a>2、link标签和import标签的区别</h2><ul>
+<li><p>link属于html标签，而@import是css提供的</p>
+</li>
+<li><p>页面被加载时，link会同时被加载，而@import引用的css会等到页面加载结束后加载。</p>
+</li>
+<li><p>link是html标签，因此没有兼容性，而@import只有IE5以上才能识别。</p>
+</li>
+<li><p>link方式样式的权重高于@import的。</p>
+</li>
+</ul>
+<h2 id="3、多行元素的文本省略号"><a href="#3、多行元素的文本省略号" class="headerlink" title="3、多行元素的文本省略号"></a>3、多行元素的文本省略号</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"> <span class="selector-tag">display</span>: <span class="selector-tag">-webkit-box</span></span><br><span class="line"><span class="selector-tag">-webkit-box-orient</span><span class="selector-pseudo">:vertical</span></span><br><span class="line"><span class="selector-tag">-web-line-clamp</span><span class="selector-pseudo">:3</span></span><br><span class="line"><span class="selector-tag">overflow</span><span class="selector-pseudo">:hidden</span></span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -571,7 +695,7 @@
   <p><span>本文标题:</span><a href="/2019/01/07/JS知识面试题/">JS知识面试题</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 fighting of erha 的个人博客">fighting of erha</a></p>
   <p><span>发布时间:</span>2019年01月07日 - 10:01</p>
-  <p><span>最后更新:</span>2019年01月07日 - 17:01</p>
+  <p><span>最后更新:</span>2019年01月08日 - 14:01</p>
   <p><span>原始链接:</span><a href="/2019/01/07/JS知识面试题/" title="JS知识面试题">https://jiangjinjin1.github.io/2019/01/07/JS知识面试题/</a>
     <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://jiangjinjin1.github.io/2019/01/07/JS知识面试题/" aria-label="复制成功！"></i></span>
   </p>
@@ -832,7 +956,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、基础javascript篇"><span class="nav-number">1.</span> <span class="nav-text">一、基础javascript篇</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、类的创建和继承"><span class="nav-number">1.1.</span> <span class="nav-text">1、类的创建和继承</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、说说前端中的事件流"><span class="nav-number">1.2.</span> <span class="nav-text">2、说说前端中的事件流</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3、如何让事件先冒泡后捕获"><span class="nav-number">1.3.</span> <span class="nav-text">3、如何让事件先冒泡后捕获</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4、callee和caller的作用与区别"><span class="nav-number">1.4.</span> <span class="nav-text">4、callee和caller的作用与区别</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、进阶javascript篇"><span class="nav-number">2.</span> <span class="nav-text">二、进阶javascript篇</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、自己实现一个bind函数"><span class="nav-number">2.1.</span> <span class="nav-text">1、自己实现一个bind函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、Macrotasks-和-Microtasks"><span class="nav-number">2.2.</span> <span class="nav-text">2、Macrotasks 和 Microtasks</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3、手写实现Promise"><span class="nav-number">2.3.</span> <span class="nav-text">3、手写实现Promise</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4、Function-proto-getPrototypeOf-是什么？"><span class="nav-number">2.4.</span> <span class="nav-text">4、Function.proto(getPrototypeOf)是什么？</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、基础javascript篇"><span class="nav-number">1.</span> <span class="nav-text">一、基础javascript篇</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、类的创建和继承"><span class="nav-number">1.1.</span> <span class="nav-text">1、类的创建和继承</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、说说前端中的事件流"><span class="nav-number">1.2.</span> <span class="nav-text">2、说说前端中的事件流</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3、如何让事件先冒泡后捕获"><span class="nav-number">1.3.</span> <span class="nav-text">3、如何让事件先冒泡后捕获</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4、callee和caller的作用与区别"><span class="nav-number">1.4.</span> <span class="nav-text">4、callee和caller的作用与区别</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、进阶javascript篇"><span class="nav-number">2.</span> <span class="nav-text">二、进阶javascript篇</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、自己实现一个bind函数"><span class="nav-number">2.1.</span> <span class="nav-text">1、自己实现一个bind函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、Macrotasks-和-Microtasks"><span class="nav-number">2.2.</span> <span class="nav-text">2、Macrotasks 和 Microtasks</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3、手写实现Promise"><span class="nav-number">2.3.</span> <span class="nav-text">3、手写实现Promise</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4、Function-proto-getPrototypeOf-是什么？"><span class="nav-number">2.4.</span> <span class="nav-text">4、Function.proto(getPrototypeOf)是什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5、观察者或订阅模式的简单实现"><span class="nav-number">2.5.</span> <span class="nav-text">5、观察者或订阅模式的简单实现</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三、http、html和浏览器篇"><span class="nav-number">3.</span> <span class="nav-text">三、http、html和浏览器篇</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、http和https"><span class="nav-number">3.1.</span> <span class="nav-text">1、http和https</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、http2-0"><span class="nav-number">3.2.</span> <span class="nav-text">2、http2.0</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3、一个图片url访问后直接下载怎样实现？"><span class="nav-number">3.3.</span> <span class="nav-text">3、一个图片url访问后直接下载怎样实现？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4、iframe是什么？有什么缺点？"><span class="nav-number">3.4.</span> <span class="nav-text">4、iframe是什么？有什么缺点？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5、Doctype作用-严格模式与混杂模式如何区分？它们有何意义"><span class="nav-number">3.5.</span> <span class="nav-text">5、Doctype作用? 严格模式与混杂模式如何区分？它们有何意义?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6、Cookie如何防范XSS攻击"><span class="nav-number">3.6.</span> <span class="nav-text">6、Cookie如何防范XSS攻击</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7、viewport和移动端布局"><span class="nav-number">3.7.</span> <span class="nav-text">7、viewport和移动端布局</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#四、CSS相关"><span class="nav-number">4.</span> <span class="nav-text">四、CSS相关</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、画一条0-5px的线"><span class="nav-number">4.1.</span> <span class="nav-text">1、画一条0.5px的线</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、link标签和import标签的区别"><span class="nav-number">4.2.</span> <span class="nav-text">2、link标签和import标签的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3、多行元素的文本省略号"><span class="nav-number">4.3.</span> <span class="nav-text">3、多行元素的文本省略号</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -869,7 +993,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">13k</span>
+    <span title="Site words total count">14.9k</span>
   
 -->
 </div>
@@ -899,7 +1023,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共13k字</span>
+  <span class="post-count">博客全站共14.9k字</span>
 </div>
 
         
