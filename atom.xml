@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://jiangjinjin1.github.io/"/>
-  <updated>2019-01-09T03:20:21.305Z</updated>
+  <updated>2019-02-14T03:31:56.313Z</updated>
   <id>https://jiangjinjin1.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>react-native随笔</title>
+    <link href="https://jiangjinjin1.github.io/2019/02/14/react-native%E9%9A%8F%E7%AC%94/"/>
+    <id>https://jiangjinjin1.github.io/2019/02/14/react-native随笔/</id>
+    <published>2019-02-14T03:17:42.000Z</published>
+    <updated>2019-02-14T03:31:56.313Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>做了react-native也有两年了，平时遇到的注意点和坑，只是解决了，但是并没有记录，现在回想我都不记得我遇到哪些坑了，一脸懵逼当中23333.。。，<br>还是动动手记录下，免得明年也懵逼😆</p><h2 id="注意点、坑点、不常用不易记的"><a href="#注意点、坑点、不常用不易记的" class="headerlink" title="注意点、坑点、不常用不易记的"></a>注意点、坑点、不常用不易记的</h2><ul><li>1、flex和flexGrow的区别：正常情况下，flex:1，和flexGrow: 1,都会在父元素下占满各自的空间，flex: 1时，一个view想设置height，同时高于<br>父元素的空间，这样高度仍然是占满父元素并不会撑开。flexGrow: 1时，设置了height，不会受父元素空间限制。<br>解释：flex只有一个值，且值为整数时，等价于 flex：X, 1, 0  ！！这才是最终答案，是根本原因。<br>flex这个属性是flexGrow、flexShrink和flexBasis三个属性的缩写。<br>详细布局片可以看这篇文章[<a href="http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html" target="_blank" rel="noopener">http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html</a>]</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;做了react-native也有两年了，平时遇到的注意点和坑，只是解决了，但是并没有记录，现在回想我都不记得我遇到哪些坑了，一脸懵逼当中23
+      
+    
+    </summary>
+    
+      <category term="react-native" scheme="https://jiangjinjin1.github.io/categories/react-native/"/>
+    
+    
+      <category term="react-native" scheme="https://jiangjinjin1.github.io/tags/react-native/"/>
+    
+  </entry>
   
   <entry>
     <title>JS知识面试题</title>
