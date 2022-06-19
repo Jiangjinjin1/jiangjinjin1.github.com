@@ -175,6 +175,34 @@
       </tags>
   </entry>
   <entry>
+    <title>mac中使用生成项目结构图tree</title>
+    <url>/2018/11/29/mac%E4%B8%AD%E4%BD%BF%E7%94%A8%E7%94%9F%E6%88%90%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84%E5%9B%BEtree/</url>
+    <content><![CDATA[<h1 id="mac"><a href="#mac" class="headerlink" title="mac"></a>mac</h1><blockquote>
+<p>Mac 的话是没有自带tree命令的，但是我们可以通过homebrew（如果你不知道它的话，这是官网）安装：</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">	</span><br><span class="line">brew install tree</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>然后等待安装完成后</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">tree --version	# 查看是否安装成功</span><br><span class="line">tree --help		# 查看帮助</span><br></pre></td></tr></table></figure>
+<span id="more"></span>
+
+<h1 id="中文Api"><a href="#中文Api" class="headerlink" title="中文Api"></a>中文Api</h1><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">-a 显示所有文件和目录。</span><br><span class="line">-A 使用<span class="variable constant_">ASNI</span>绘图字符显示树状图而非以<span class="variable constant_">ASCII</span>字符组合。</span><br><span class="line">-C 在文件和目录清单加上色彩，便于区分各种类型。</span><br><span class="line">-d 显示目录名称而非内容。</span><br><span class="line">-D 列出文件或目录的更改时间。</span><br><span class="line">-f 在每个文件或目录之前，显示完整的相对路径名称。</span><br><span class="line">-F 在执行文件，目录，<span class="title class_">Socket</span>，符号连接，管道名称名称，各自加上<span class="string">&quot;*&quot;</span>,<span class="string">&quot;/&quot;</span>,<span class="string">&quot;=&quot;</span>,<span class="string">&quot;@&quot;</span>,<span class="string">&quot;|&quot;</span>号。</span><br><span class="line">-g 列出文件或目录的所属群组名称，没有对应的名称时，则显示群组识别码。</span><br><span class="line">-i 不以阶梯状列出文件或目录名称。</span><br><span class="line">-I 不显示符合范本样式的文件或目录名称。</span><br><span class="line">-l 如遇到性质为符号连接的目录，直接列出该连接所指向的原始目录。</span><br><span class="line">-n 不在文件和目录清单加上色彩。</span><br><span class="line">-N 直接列出文件和目录名称，包括控制字符。</span><br><span class="line">-p 列出权限标示。</span><br><span class="line">-P 只显示符合范本样式的文件或目录名称。</span><br><span class="line">-q 用<span class="string">&quot;?&quot;</span>号取代控制字符，列出文件和目录名称。</span><br><span class="line">-s 列出文件或目录大小。</span><br><span class="line">-t 用文件和目录的更改时间排序。</span><br><span class="line">-u 列出文件或目录的拥有者名称，没有对应的名称时，则显示用户识别码。</span><br><span class="line">-x 将范围局限在现行的文件系统中，若指定目录下的某些子目录，其存放于另一个文件系统上，则将该子目录予以排除在寻找范围外。</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h1 id="Used"><a href="#Used" class="headerlink" title="Used"></a>Used</h1><blockquote>
+<p>下面是我生成上面的结构所用的命令，大家可以参考下</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">tree -I <span class="string">&#x27;node_modules|dist|*.mp3|*.jpg&#x27;</span> -f</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>工具类</category>
+      </categories>
+      <tags>
+        <tag>工具类</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>markdown基础语法</title>
     <url>/2018/11/16/markdown%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/</url>
     <content><![CDATA[<h1 id="1-markdown是什么？"><a href="#1-markdown是什么？" class="headerlink" title="1. markdown是什么？"></a>1. markdown是什么？</h1><blockquote>
@@ -331,34 +359,6 @@
       </categories>
       <tags>
         <tag>CSS类</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>mac中使用生成项目结构图tree</title>
-    <url>/2018/11/29/mac%E4%B8%AD%E4%BD%BF%E7%94%A8%E7%94%9F%E6%88%90%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84%E5%9B%BEtree/</url>
-    <content><![CDATA[<h1 id="mac"><a href="#mac" class="headerlink" title="mac"></a>mac</h1><blockquote>
-<p>Mac 的话是没有自带tree命令的，但是我们可以通过homebrew（如果你不知道它的话，这是官网）安装：</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">	</span><br><span class="line">brew install tree</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>然后等待安装完成后</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">tree --version	# 查看是否安装成功</span><br><span class="line">tree --help		# 查看帮助</span><br></pre></td></tr></table></figure>
-<span id="more"></span>
-
-<h1 id="中文Api"><a href="#中文Api" class="headerlink" title="中文Api"></a>中文Api</h1><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">-a 显示所有文件和目录。</span><br><span class="line">-A 使用<span class="variable constant_">ASNI</span>绘图字符显示树状图而非以<span class="variable constant_">ASCII</span>字符组合。</span><br><span class="line">-C 在文件和目录清单加上色彩，便于区分各种类型。</span><br><span class="line">-d 显示目录名称而非内容。</span><br><span class="line">-D 列出文件或目录的更改时间。</span><br><span class="line">-f 在每个文件或目录之前，显示完整的相对路径名称。</span><br><span class="line">-F 在执行文件，目录，<span class="title class_">Socket</span>，符号连接，管道名称名称，各自加上<span class="string">&quot;*&quot;</span>,<span class="string">&quot;/&quot;</span>,<span class="string">&quot;=&quot;</span>,<span class="string">&quot;@&quot;</span>,<span class="string">&quot;|&quot;</span>号。</span><br><span class="line">-g 列出文件或目录的所属群组名称，没有对应的名称时，则显示群组识别码。</span><br><span class="line">-i 不以阶梯状列出文件或目录名称。</span><br><span class="line">-I 不显示符合范本样式的文件或目录名称。</span><br><span class="line">-l 如遇到性质为符号连接的目录，直接列出该连接所指向的原始目录。</span><br><span class="line">-n 不在文件和目录清单加上色彩。</span><br><span class="line">-N 直接列出文件和目录名称，包括控制字符。</span><br><span class="line">-p 列出权限标示。</span><br><span class="line">-P 只显示符合范本样式的文件或目录名称。</span><br><span class="line">-q 用<span class="string">&quot;?&quot;</span>号取代控制字符，列出文件和目录名称。</span><br><span class="line">-s 列出文件或目录大小。</span><br><span class="line">-t 用文件和目录的更改时间排序。</span><br><span class="line">-u 列出文件或目录的拥有者名称，没有对应的名称时，则显示用户识别码。</span><br><span class="line">-x 将范围局限在现行的文件系统中，若指定目录下的某些子目录，其存放于另一个文件系统上，则将该子目录予以排除在寻找范围外。</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h1 id="Used"><a href="#Used" class="headerlink" title="Used"></a>Used</h1><blockquote>
-<p>下面是我生成上面的结构所用的命令，大家可以参考下</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">tree -I <span class="string">&#x27;node_modules|dist|*.mp3|*.jpg&#x27;</span> -f</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>工具类</category>
-      </categories>
-      <tags>
-        <tag>工具类</tag>
       </tags>
   </entry>
   <entry>
