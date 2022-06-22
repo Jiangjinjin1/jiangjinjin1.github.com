@@ -29,6 +29,7 @@
 <meta property="og:site_name" content="遇到困难不回头">
 <meta property="og:description" content="前言eslint它规范的是代码偏向语法层面上的风格。本篇文章以一个基于react+ts项目，来说明eslint+prettier+husky+lint-staged配置项目代码规范, 可以搭配vscode中的eslint插件，我就不做介绍了。">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://jiangjinjin1.github.io/images/projectConfigure/project_configure_01.png">
 <meta property="og:image" content="https://jiangjinjin1.github.io/images/projectConfigure/project_configure_02.png">
 <meta property="og:image" content="https://jiangjinjin1.github.io/images/projectConfigure/project_configure_03.png">
 <meta property="og:image" content="https://jiangjinjin1.github.io/images/projectConfigure/project_configure_04.png">
@@ -36,11 +37,11 @@
 <meta property="og:image" content="https://jiangjinjin1.github.io/images/projectConfigure/project_configure_06.png">
 <meta property="og:image" content="https://jiangjinjin1.github.io/images/projectConfigure/project_configure_07.png">
 <meta property="article:published_time" content="2022-06-18T08:42:26.000Z">
-<meta property="article:modified_time" content="2022-06-22T05:25:22.942Z">
+<meta property="article:modified_time" content="2022-06-22T05:26:33.362Z">
 <meta property="article:author" content="jinjinjiang">
 <meta property="article:tag" content="项目框架配置">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://jiangjinjin1.github.io/images/projectConfigure/project_configure_02.png">
+<meta name="twitter:image" content="https://jiangjinjin1.github.io/images/projectConfigure/project_configure_01.png">
 
 <link rel="canonical" href="https://jiangjinjin1.github.io/2022/06/18/eslint%E4%B8%8Eprettier%E4%B8%8Ehusky%E9%85%8D%E7%BD%AE/">
 
@@ -247,7 +248,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-06-22 13:25:22" itemprop="dateModified" datetime="2022-06-22T13:25:22+08:00">2022-06-22</time>
+                <time title="修改时间：2022-06-22 13:26:33" itemprop="dateModified" datetime="2022-06-22T13:26:33+08:00">2022-06-22</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -281,7 +282,8 @@
 
 <h2 id="2、创建eslint配置文件"><a href="#2、创建eslint配置文件" class="headerlink" title="2、创建eslint配置文件"></a>2、创建eslint配置文件</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npx eslint —-init</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <p><strong>获得一个.eslintrc.json文件,根据终端提示，选择项目框架类型，本文是以react+ts，按照提示选择，并生成.eslintrc.json文件</strong></p>
-<p>&lt;img src&#x3D;”&#x2F;images&#x2F;projectConfigure&#x2F;project_configure_01.png” alt&#x3D;”.eslintrc.json” title&#x3D;”.eslintrc.json配置内容””&gt;</p>
+<img src="/images/projectConfigure/project_configure_01.png" alt=".eslintrc.json" title=".eslintrc.json配置内容">
+
 <h2 id="3、创建-eslintignore文件"><a href="#3、创建-eslintignore文件" class="headerlink" title="3、创建.eslintignore文件"></a>3、创建.eslintignore文件</h2><blockquote>
 <p>针对项目结构，定义需要检测的目录，配置.eslintignproore忽略检测的文件目录</p>
 </blockquote>
